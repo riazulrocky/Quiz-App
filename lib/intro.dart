@@ -34,6 +34,7 @@ class _introState extends State<intro> {
 
           children: [
             Image.asset("assets/images/quiz-app.png", width: 200,)
+            SizedBox(height: 10,)
             // Text(data)
             // OutlinedButton(onPressed: onPressed, child: child)
           ],
