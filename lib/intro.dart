@@ -47,7 +47,7 @@ class _introState extends State<intro> {
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 80,),
-            OutlinedButton(onPressed: (){
+            OutlinedButton.icon(onPressed: (){
 
               Navigator.push(context, MaterialPageRoute(builder: (context) => questions()));
 
@@ -55,9 +55,9 @@ class _introState extends State<intro> {
 
                 style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
 
-                child: Text("Start Quiz")),
-            // Text(data)
-            // OutlinedButton(onPressed: onPressed, child: child)
+                icon: const Icon(Icons.arrow_right),
+              label: const Text("Start Quiz"),)
+
           ],
         ),
       ),
