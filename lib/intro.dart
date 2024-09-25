@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/questions.dart';
 
 class intro extends StatefulWidget {
   const intro({super.key});
@@ -33,8 +34,28 @@ class _introState extends State<intro> {
           mainAxisAlignment: MainAxisAlignment.center,
 
           children: [
-            Image.asset("assets/images/quiz-app.png", width: 200,)
-            SizedBox(height: 10,)
+            Image.asset(
+              "assets/images/quiz-app.png",
+              width: 200,
+            ),
+            SizedBox(height: 50),
+            Text(
+              "Flutter",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 80,),
+            OutlinedButton(onPressed: (){
+
+              Navigator.push(context, MaterialPageRoute(builder: (context) => questions()));
+
+            },
+
+                style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
+
+                child: Text("Start Quiz")),
             // Text(data)
             // OutlinedButton(onPressed: onPressed, child: child)
           ],
