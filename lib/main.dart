@@ -13,11 +13,26 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const intro(),
-    );
+      home: Scaffold(
+
+        body: Container(
+
+        width: double.infinity,
+
+        decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Colors.deepPurpleAccent.shade200,
+              Colors.deepPurple.shade900
+            ],
+
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+
+            ),
+        ),
+
+          child: const intro(),
+
+    )));
   }
 }

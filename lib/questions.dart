@@ -10,10 +10,20 @@ class questions extends StatefulWidget {
 }
 
 class _questionsState extends State<questions> {
+
+  var currentQuestionIndex = 0;
+  void answerQuestion(){
+
+    setState(() {
+      currentQuestionIndex++;
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
 
-    final currentQuestion = question[0];
+    final currentQuestion = question[currentQuestionIndex];
 
     return Scaffold(
 
@@ -32,21 +42,23 @@ class _questionsState extends State<questions> {
 
               ),
             ),
-
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-
-                Text(currentQuestion.text, style: TextStyle(color: Colors.white, fontSize: 20),),
-                SizedBox(height: 30),
-
-
-                ...currentQuestion.answers.map((answer){
-                  return AnswerButton(answerText: answer, ontap: (){});
-                })
-
-
-              ],
+            child: Container(
+              margin: EdgeInsets.all(30),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    currentQuestion.text,
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 30),
+                  ...currentQuestion.getShuffledAnswers().map((answer) {
+                    return AnswerButton(answerText: answer, ontap: answerQuestion);
+                  })
+                ],
+              ),
             )
         ));
   }
