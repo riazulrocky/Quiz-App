@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/questions.dart';
 
-class intro extends StatefulWidget {
-  const intro({super.key});
+class intro extends StatelessWidget {
+  const intro(this.startQuiz, {super.key});
 
-  @override
-  State<intro> createState() => _introState();
-}
+  final void Function() startQuiz;
 
-class _introState extends State<intro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,11 +44,7 @@ class _introState extends State<intro> {
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 80,),
-            OutlinedButton.icon(onPressed: (){
-
-              Navigator.push(context, MaterialPageRoute(builder: (context) => questions()));
-
-            },
+            OutlinedButton.icon(onPressed: startQuiz,
 
                 style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
 
