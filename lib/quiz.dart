@@ -29,7 +29,7 @@ class _QuizState extends State<Quiz> {
     if(selectAnswers.length == question.length){
       selectAnswers = [];
       setState(() {
-        activeScreen == "intro-screen";
+        activeScreen == "results-screen";
       });
     }
   }
