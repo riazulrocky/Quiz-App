@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/questions.dart';
+import 'package:quiz_app/results_screen.dart';
 
 import 'data/questions_data.dart';
 import 'intro.dart';
@@ -36,6 +37,17 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(BuildContext context) {
+
+    Widget screenWidget = intro(switchScreen);
+
+    if(activeScreen == 'question-screen'){
+      screenWidget = questions(onSelectAnswer: chooseAnswer);
+    }
+
+    if(activeScreen == 'result-screen'){
+      screenWidget = const ResultScreen();
+    }
+
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
@@ -56,7 +68,7 @@ class _QuizState extends State<Quiz> {
                 ),
               ),
 
-              child: activeScreen == "intro-screen"? intro(switchScreen) : questions(onSelectAnswer: chooseAnswer),
+              child: screenWidget,
 
             )));;
   }
