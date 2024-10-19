@@ -20,7 +20,6 @@ class ResultScreen extends StatelessWidget {
     }
 
     return summary;
-
   }
 
   @override
