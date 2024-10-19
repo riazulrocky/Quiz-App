@@ -1,21 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/question_summary.dart';
+import 'package:quiz_app/questions.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key, required this.chosenAnswers});
 
   final List<String> chosenAnswers;
 
+  List<Map<String, Object>> getSummaryData(){
+    final List<Map<String, Object>> summary = [];
+
+    for(var i = 0; i < chosenAnswers.length; i++){
+      summary.add({
+        'question-index' : i,
+        'question' : questions[i].text,
+        'correct_answer' : questions[i].answers[0],
+        'user_answer' : chosenAnswers[i]
+      });
+    }
+
+    return summary;
+
+  }
+
   @override
   Widget build(BuildContext context) {
+    final summaryData = getSummaryData();
+    final numTotalQuestions = questions.length;
+    final numCorrectAnswers = summaryData.where((data){
+      return data["user_answer"] == data["correct_answer"];
+    }).length;
+
     return Scaffold(
-      body: Column(
-        children: [
-          Text("You have answered X out of Y correctly."),
-          SizedBox(height: 30),
-          Text("Answers and Questions"),
-          TextButton(onPressed: (){}, child: Text("Restart Quiz"))
-        ],
-      ),
+      body: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(colors: [
+            Colors.deepPurpleAccent.shade200,
+            Colors.deepPurple.shade900,
+          ],
+            begin: Alignment.topLeft, end: Alignment.bottomRight
+          )
+        ),
+
+        child: Column(
+          children: [
+            Text("You have answered $numCorrectAnswers out of $numTotalQuestions correctly"),
+            SizedBox(height: 30,),
+
+            QuestionSummary(summaryData: summaryData),
+
+            SizedBox(height: 30,),
+            TextButton(onPressed: (){}, child: Text("Restart Quiz")),
+          ],
+        ),
+      )
     );
   }
 }
