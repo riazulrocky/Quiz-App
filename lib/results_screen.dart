@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/question_summary.dart';
-import 'package:quiz_app/questions.dart';
+
+import 'data/questions_data.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key, required this.chosenAnswers});
@@ -10,11 +11,11 @@ class ResultScreen extends StatelessWidget {
   List<Map<String, Object>> getSummaryData(){
     final List<Map<String, Object>> summary = [];
 
-    for(var i = 0; i < chosenAnswers.length; i++){
+    for (var i = 0; i < chosenAnswers.length; i++){
       summary.add({
-        'question-index' : i,
-        'question' : questions[i].text,
-        'correct_answer' : questions[i].answers[0],
+        'question_index' : i,
+        'question' : question[i].text,
+        'correct_answer' : question[i].answers[0],
         'user_answer' : chosenAnswers[i]
       });
     }
@@ -25,35 +26,34 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final summaryData = getSummaryData();
-    final numTotalQuestions = questions.length;
+    final numTotalQuestions = question.length;
     final numCorrectAnswers = summaryData.where((data){
       return data["user_answer"] == data["correct_answer"];
     }).length;
+
 
     return Scaffold(
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [
-            Colors.deepPurpleAccent.shade200,
-            Colors.deepPurple.shade900,
-          ],
-            begin: Alignment.topLeft, end: Alignment.bottomRight
-          )
-        ),
+            gradient: LinearGradient(colors: [
+              Colors.deepPurpleAccent.shade200,
+              Colors.deepPurple.shade900
+            ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
 
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("You have answered $numCorrectAnswers out of $numTotalQuestions correctly"),
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
 
             QuestionSummary(summaryData: summaryData),
 
-            SizedBox(height: 30,),
-            TextButton(onPressed: (){}, child: Text("Restart Quiz")),
+            const SizedBox(height: 30,),
+            TextButton(onPressed: (){}, child: const Text("Restart Quiz"))
           ],
         ),
-      )
+      ),
     );
   }
 }

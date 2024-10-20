@@ -1,8 +1,10 @@
+
 import 'package:flutter/material.dart';
+import 'package:quiz_app/data/questions_data.dart';
 import 'package:quiz_app/questions.dart';
 import 'package:quiz_app/results_screen.dart';
 
-import 'data/questions_data.dart';
+
 import 'intro.dart';
 
 class Quiz extends StatefulWidget {
@@ -18,7 +20,7 @@ class _QuizState extends State<Quiz> {
 
   var activeScreen = "intro-screen";
 
-  void switchScreen(){
+  void switchScreen (){
     setState(() {
       activeScreen = "question-screen";
     });
@@ -27,48 +29,44 @@ class _QuizState extends State<Quiz> {
   void chooseAnswer(String answer){
     selectAnswers.add(answer);
 
-    if(selectAnswers.length == question.length){
+    if (selectAnswers.length == question.length)
+    {
+
       setState(() {
-        activeScreen == "result-screen";
+        activeScreen = "result-screen";
       });
     }
+
   }
+
 
   @override
   Widget build(BuildContext context) {
 
-    Widget screenWidget = intro(switchScreen);
+    Widget screenWidget = Intro(switchScreen);
 
     if(activeScreen == 'question-screen'){
-      screenWidget = questions(onSelectAnswer: chooseAnswer);
+      screenWidget = Questions(onSelectAnswer: chooseAnswer);
     }
 
     if(activeScreen == "result-screen"){
-      screenWidget = ResultScreen(chosenAnswers: selectAnswers);
+      screenWidget = ResultScreen(chosenAnswers: selectAnswers,);
     }
 
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
+      home: Scaffold(
+        body: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Colors.deepPurpleAccent.shade200,
+                Colors.deepPurple.shade900
+              ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
 
-            body: Container(
+          child: screenWidget,
 
-              width: double.infinity,
-
-              decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-                  Colors.deepPurpleAccent.shade200,
-                  Colors.deepPurple.shade900
-                ],
-
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-
-                ),
-              ),
-
-              child: screenWidget,
-
-            )));;
+        ),
+      ),
+    );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/questions.dart';
 
-class intro extends StatelessWidget {
-  const intro(this.startQuiz, {super.key});
+class Intro extends StatelessWidget {
+  const Intro(this.startQuiz, {super.key});
 
   final void Function() startQuiz;
 

@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/data/questions_data.dart';
 import 'package:quiz_app/reuseable_button/answer_button.dart';
 
-class questions extends StatefulWidget {
-  const questions({super.key, required this.onSelectAnswer});
+class Questions extends StatefulWidget {
+  const Questions({super.key, required this.onSelectAnswer});
 
   final void Function(String answer) onSelectAnswer;
 
   @override
-  State<questions> createState() => _questionsState();
+  State<Questions> createState() => _QuestionsState();
 }
 
-class _questionsState extends State<questions> {
+class _QuestionsState extends State<Questions> {
 
 
 
