@@ -60,7 +60,7 @@ class ResultScreen extends StatelessWidget {
 
             QuestionSummary(summaryData: summaryData),
 
-            const SizedBox(height: 30,),
+            const SizedBox(height: 13.5,),
 
             OutlinedButton.icon(
               onPressed: () {
