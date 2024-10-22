@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:quiz_app/data/questions_data.dart';
 import 'package:quiz_app/questions.dart';
@@ -54,6 +53,7 @@ class _QuizState extends State<Quiz> {
     }
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Container(
           width: double.infinity,

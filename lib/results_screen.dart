@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/intro.dart';
 import 'package:quiz_app/question_summary.dart';
+import 'package:quiz_app/quiz.dart';
 
 import 'data/questions_data.dart';
 
@@ -31,7 +33,6 @@ class ResultScreen extends StatelessWidget {
       return data["user_answer"] == data["correct_answer"];
     }).length;
 
-
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -50,7 +51,22 @@ class ResultScreen extends StatelessWidget {
             QuestionSummary(summaryData: summaryData),
 
             const SizedBox(height: 30,),
-            TextButton(onPressed: (){}, child: const Text("Restart Quiz"))
+
+            OutlinedButton.icon(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Quiz(),
+                  ),
+                );
+              },
+              icon: Icon(Icons.refresh, color: Colors.white),
+              label: Text("Restart Quiz", style: TextStyle(color: Colors.white)),
+              style: OutlinedButton.styleFrom(
+              ),
+            )
+
           ],
         ),
       ),

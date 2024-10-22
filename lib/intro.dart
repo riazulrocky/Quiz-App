@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/questions.dart';
 
 class Intro extends StatelessWidget {
   const Intro(this.startQuiz, {super.key});
@@ -9,7 +8,6 @@ class Intro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Container(
 
         width: double.infinity,
