@@ -14,11 +14,11 @@ class QuestionSummary extends StatelessWidget {
           children: summaryData.map((data){
             return Row(children: [
               Container(
-                height: 76,
+                height: 100,
                 padding: EdgeInsets.only(left: 33),
                 child: Text(
                   ((data['question_index'] as int) + 1).toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -27,25 +27,30 @@ class QuestionSummary extends StatelessWidget {
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.only(right: 40, left: 20, bottom: 15),
+                  padding: const EdgeInsets.only(right: 40, left: 20, bottom: 15),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         data['question'] as String,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 17,
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        data['user_answer'] as String,
-                        style: TextStyle(color: Colors.amberAccent, fontSize: 15),
+                        data['correct_answer'] as String,
+                        style:
+                            TextStyle(color: Colors.cyanAccent, fontSize: 15),
+                      ),
+                      const Text(
+                        "Your answer was ",
+                        style: TextStyle(color: Colors.grey, fontSize: 15),
                       ),
                       Text(
-                        data['correct_answer'] as String,
-                        style: TextStyle(color: Colors.cyanAccent, fontSize: 15),
+                        data['user_answer'] as String,
+                        style: TextStyle(color: Colors.amberAccent, fontSize: 15),
                       ),
                     ],
                   ),

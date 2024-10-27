@@ -34,9 +34,9 @@ var question = [
   ]),
   QuizQuestion("What is Flutter primarily used for?", [
     "Building cross-platform mobile apps",
-    "Designing databases",
+    "Game Development",
     "Writing backend code",
-    "Creating websites"
+    "Web Development"
   ]),
   QuizQuestion("Which company developed Flutter?", [
     "Google",
@@ -61,6 +61,33 @@ var question = [
     "Adds padding to a widget",
     "Makes a widget full screen",
     "Arranges widgets vertically"
+  ]),
+  QuizQuestion("What is the purpose of the pubspec.yaml file in Flutter projects?", [
+    "To list project dependencies and assets",
+    "To manage Flutter versions",
+    "To define the app’s navigation structure",
+    "To store user preferences"
+  ]),
+  QuizQuestion("Flutter is mainly used to create apps for which of these platforms?", [
+    "Both Android and iOS",
+    "iOS only",
+    "Android only",
+    "Web only"
+  ]),  QuizQuestion("In Flutter, what is the purpose of the main() function?", [
+    "To start the app",
+    "To style the app",
+    "To close the app",
+    "To debug the app"
+  ]),  QuizQuestion("How do you display text in Flutter?", [
+    "Using the Text() widget",
+    "Using the Display() widget",
+    "Using the Print() widget",
+    "Using the Screen() widget"
+  ]),  QuizQuestion("When was Flutter officially launched?", [
+    "December 2018",
+    "May 2017",
+    "November 2019",
+    "February 2024"
   ]),
 
 
