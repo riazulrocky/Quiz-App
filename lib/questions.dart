@@ -47,17 +47,19 @@ class _QuestionsState extends State<Questions> {
               ),
             ),
             child: Container(
-              margin: EdgeInsets.all(30),
+              margin: const EdgeInsets.all(30),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
                     currentQuestion.text,
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    style: const TextStyle(color: Colors.white, fontSize: 20),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 30),
+
+                  const SizedBox(height: 30),
+
                   ...currentQuestion.getShuffledAnswers().map((answer) {
                     return AnswerButton(answerText: answer, ontap: (){
                       answerQuestion(answer);
@@ -66,6 +68,7 @@ class _QuestionsState extends State<Questions> {
                 ],
               ),
             )
-        ));
+        )
+    );
   }
 }

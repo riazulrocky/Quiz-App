@@ -33,15 +33,19 @@ class Intro extends StatelessWidget {
               "assets/images/quiz-app.png",
               width: 200,
             ),
-            SizedBox(height: 50),
-            Text(
+
+            const SizedBox(height: 50),
+
+            const Text(
               "Flutter",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 22,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 80,),
+
+            const SizedBox(height: 80,),
+
             OutlinedButton.icon(onPressed: startQuiz,
 
                 style: OutlinedButton.styleFrom(foregroundColor: Colors.white),

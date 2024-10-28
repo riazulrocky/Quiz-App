@@ -15,7 +15,7 @@ class QuestionSummary extends StatelessWidget {
             return Row(children: [
               Container(
                 height: 100,
-                padding: EdgeInsets.only(left: 33),
+                padding: const EdgeInsets.only(left: 33),
                 child: Text(
                   ((data['question_index'] as int) + 1).toString(),
                   style: const TextStyle(
@@ -42,7 +42,7 @@ class QuestionSummary extends StatelessWidget {
                       Text(
                         data['correct_answer'] as String,
                         style:
-                            TextStyle(color: Colors.cyanAccent, fontSize: 15),
+                            const TextStyle(color: Colors.cyanAccent, fontSize: 15),
                       ),
                       const Text(
                         "Your answer was ",
@@ -50,7 +50,7 @@ class QuestionSummary extends StatelessWidget {
                       ),
                       Text(
                         data['user_answer'] as String,
-                        style: TextStyle(color: Colors.amberAccent, fontSize: 15),
+                        style: const TextStyle(color: Colors.amberAccent, fontSize: 15),
                       ),
                     ],
                   ),

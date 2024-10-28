@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/intro.dart';
 import 'package:quiz_app/question_summary.dart';
 import 'package:quiz_app/quiz.dart';
 
@@ -40,7 +39,7 @@ class ResultScreen extends StatelessWidget {
             gradient: LinearGradient(colors: [
               Colors.deepPurpleAccent.shade200,
               Colors.deepPurple.shade900
-            ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
+        ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
 
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -56,6 +55,7 @@ class ResultScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
               ),
             ),
+
             const SizedBox(height: 30,),
 
             QuestionSummary(summaryData: summaryData),
@@ -67,7 +67,7 @@ class ResultScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Quiz(),
+                    builder: (context) => const Quiz(),
                   ),
                 );
               },
@@ -76,7 +76,6 @@ class ResultScreen extends StatelessWidget {
               style: OutlinedButton.styleFrom(
               ),
             )
-
           ],
         ),
       ),
